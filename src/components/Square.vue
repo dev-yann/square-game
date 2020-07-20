@@ -34,6 +34,7 @@
     .square {
         position: absolute;
         background-color: red;
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
 
     .slide-enter-enter-active {

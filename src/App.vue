@@ -20,8 +20,8 @@
                     {
                         width: 300,
                         height: 300,
-                        top: this.getRandom(0, window.innerHeight - 50),
-                        left: this.getRandom(0, window.innerWidth - 50),
+                        top: -400,
+                        left: this.getRandom(0, window.innerWidth - 150),
                         color: 'blue'
                     }
                 ],
@@ -31,6 +31,12 @@
                 },
                 colors: ['blue', 'red', 'yellow', 'grey', 'black']
             }
+        },
+
+        mounted() {
+            setTimeout(() => {
+                this.$set(this.squares[0], 'top', this.getRandom(0, window.innerHeight - 100))
+            }, 500)
         },
         methods: {
 
@@ -45,14 +51,10 @@
                 let width = this.squares[index].width;
                 // this.squares.splice(index, 1);
                 this.squares.splice(index, 1, ...this.generateSquare(width));
-
-                console.log(this.squares);
             },
 
             generateSquare: function (preWidth) {
                 let squareArray = [];
-
-                console.log(this.colors.length);
 
                 for (let i = 0; i <= 3; i++) {
                     squareArray.push({
@@ -63,8 +65,6 @@
                         color: this.colors[this.getRandom(0, this.colors.length)]
                     })
                 }
-
-                console.log(squareArray);
                 return squareArray;
             }
         }
